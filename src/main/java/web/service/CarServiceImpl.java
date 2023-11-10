@@ -10,11 +10,7 @@ import java.util.List;
 public class CarServiceImpl implements CarService{
     @Override
     public List<Car> getCarListByAmount(int value) {
-        if (value < 5) {
-            return getCarList().subList(0, value);
-        } else {
-            return getCarList();
-        }
+        return getCarList().stream().limit(value).toList();
     }
 
     private List<Car> getCarList() {
